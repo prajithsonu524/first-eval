@@ -6,12 +6,13 @@ describe('Higest product of word length in array of words', () => {
         expect(highestProductInArray(words)).toEqual(16);
         // const words1 = ['abcw', 'baz', 'foo', 'bar', 'xtfn', 'abcdef', 'abcw', 'baz', 'foo', 'abcdef'];
         // expect(highestProductInArray(words1)).toEqual(24);
+
     });
     it('returns 0 if no words are found', () => {
         const words = ['abcw', 'abcw', 'abcw', 'abcw', 'abcw', 'abcw'];
         expect(highestProductInArray(words)).toEqual(0);
     });
-    it('returns false if any element is not a string', () => {
+    it('returns error mesage if any element is not a string', () => {
         const words = ['abcw', 'baz', 'foo', 'bar', 'xtfn', 123];
         expect(highestProductInArray(words)).toEqual('All elements must be strings');
         const wordsq = ['abcw', 'baz', 'foo', 'bar', 'xtfn', ['abcw', 'baz', 'foo', 'bar', 'xtfn', 'abcdef']];
@@ -19,8 +20,16 @@ describe('Higest product of word length in array of words', () => {
 
     });
 
-    it('returns 0 if a null arrray is passed', () => {
+    it('returns null error message arrray is passed', () => {
         const words = null;
+        expect(highestProductInArray(words)).toEqual('array is null');
+    });
+    it('returns 0 if no words are found', () => {
+        const words = ['abcw', 'abcw', 'abcw', 'abcw', 'abcw', 'abcw'];
         expect(highestProductInArray(words)).toEqual(0);
+    });
+    it('returns empty array if no words are found', () => {
+        const words = [];
+        expect(highestProductInArray(words)).toEqual('array is empty');
     });
 });

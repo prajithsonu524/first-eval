@@ -4,8 +4,11 @@
 const highestProductInArray = (words) => {
     //validate if all elements are strings
 
+
+    if (words === null) return 'array is null';
+
     if (words.length === 0) {
-        return 0;
+        return 'array is empty';
     }
     if (words.some(word => typeof word != 'string')) {
         return 'All elements must be strings';
